@@ -1,0 +1,5 @@
+tun-device nat64
+ipv4-addr 192.168.255.1
+prefix 2001:db8:1:ffff::/96
+default-addr4 192.168.255.2
+map 192.168.255.3 2001:db8:1:4444::1

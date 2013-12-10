@@ -1,0 +1,48 @@
+******************************************************************************
+                           README for TAYGA v0.9.2
+******************************************************************************
+Last updated 2013-12-12
+
+-------------------------------
+Stateful NAT64
+-------------------------------
+
+
+Most people are familiar with stateful NAT, which allows N:1 address mapping
+by tracking TCP and UDP sessions and rewriting port numbers on each packet.
+Most commonly this is used to translate sessions from multiple "internal"
+hosts (which are numbered with private IPv4 addresses) onto a single global
+IPv4 address on the NAT device's "external" interface.
+
+
+----------------------------------
+Installation & Basic Configuration
+----------------------------------
+TAYGA uses the GNU Automake/Autoconf system, which requires the `configure`
+
+run:
+
+  # ./configure && make && make install
+
+This will install the tayga executable in /usr/local/sbin/tayga and the sample
+Now create your site-specific tayga.conf configuration file.
+
+config file in /usr/local/etc/tayga.conf.example.
+
+have the configuration file in
+/usr/local/etc/tayga.conf
+
+Next, if you would like dynamic maps to be persistent between TAYGA restarts,
+create a directory to store the dynamic.map file:
+
+  # mkdir -p /var/db/tayga
+
+Before starting the TAYGA daemon, the routing setup on your system will need
+to be changed to send IPv4 and IPv6 packets to TAYGA.  First create the TUN
+network interface:
+
+All Run configuration present in script start.sh 
+
+run:
+   sudo sh start.sh
+
